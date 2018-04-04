@@ -1,0 +1,63 @@
+[
+  {
+    "operation": "shift",
+    "spec": {
+      "tax_class_id": "tax_class_id",
+      "weight": "weight",
+      "length": "length",
+      "width": "width",
+      "height": "height",
+      "minimum": "minimum",
+      "sort_order": "sort_order",
+      "status": "status",
+      "viewed": "viewed",
+      "date_added": "store_date_added",
+      "date_modified": "store_date_modified",
+      "product_id": "store_product_id",
+      "product_description": {
+        "1": {
+          "name": "name",
+          "description": "description",
+          "meta_title": "meta_title",
+          "meta_description": "meta_description",
+          "meta_keyword": "meta_keyword",
+          "tag": "tag"
+        }
+      },
+      "product_special": {
+        "*": {
+          "product_special_id": "product_special.[&1].product_special_id",
+          "price": "product_special.[&1].price",
+          "date_start": "product_special.[&1].date_start",
+          "date_end": "product_special.[&1].date_end"
+        }
+      },
+      "product_image": {
+        "*": {
+          "product_image_id": "additional_image.[&1].product_image_id",
+          "product_id": "additional_image.[&1].product_id",
+          "image": "additional_image.[&1].image"
+        }
+      },
+      "product_attribute": {
+        "*": {
+          "attribute_id": "product_attribute.[&1].attribute_id",
+          "product_attribute_description": {
+            "1": {
+              "text": "product_attribute.[&1].text"
+            }
+          }
+        }
+      }
+    }
+    },
+
+  {
+    "operation": "modify-overwrite-beta",
+    "spec": {
+      "store_id": "100021",
+      "id_uuid": "=concat(@(1,store_id),'-',@(1,store_product_id))",
+      "technify_id": "=concat(@(1,store_id),'',@(1,store_product_id))"
+    }
+}
+]
